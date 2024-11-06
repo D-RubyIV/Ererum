@@ -1,0 +1,4 @@
+colorlog~=6.9.0
+PySide6~=6.8.0.2
+pydantic-settings~=2.6.1
+SQLAlchemy~=2.0.36

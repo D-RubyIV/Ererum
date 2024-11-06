@@ -1,3 +1,5 @@
 .idea
-pyside/ui/
+pyside/core/
 pyside/main.py
+**/*.pyc
+__pycache__/
