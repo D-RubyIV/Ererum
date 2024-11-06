@@ -19,7 +19,7 @@ public class TokenObject {
         public Builder(){
             data = new TokenObject();
         }
-        public Builder accessTokenId(String accessToken){
+        public Builder accessToken(String accessToken){
             data.setAccessToken(accessToken);
             return this;
         }

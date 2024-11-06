@@ -23,8 +23,8 @@ public class TokenProvider {
         RSAPublicKey publicKey = keyPairProvider.getRsaPublicKey();
         RSAPrivateKey privateKey = keyPairProvider.getRsaPrivateKey();
 
-        Long accessTokenExpireTime = 3000 * 60L;
-        Long refreshTokenExpireTime = 3000 * 60L * 10;
+        long accessTokenExpireTime = 3000 * 60L;
+        long refreshTokenExpireTime = 3000 * 60L * 10;
 
         String accessTokenUUID = UUID.randomUUID().toString();
         String refreshTokenUUID = UUID.randomUUID().toString();
@@ -41,7 +41,7 @@ public class TokenProvider {
             throw new RuntimeException("Authentication of type '"
                     + authentication.getClass().getSimpleName() + "' is not supported");
         }
-        String accessToken = SecUtil.createJwtToken(
+        String accessToken = SecurityUtil.createJwtToken(
                 issuer,
                 accessTokenExpireTime,
                 username,
@@ -51,7 +51,7 @@ public class TokenProvider {
                 algorithm,
                 accessTokenUUID
                 );
-        String refreshToken = SecUtil.createJwtToken(
+        String refreshToken = SecurityUtil.createJwtToken(
                 issuer,
                 refreshTokenExpireTime,
                 username,
@@ -61,5 +61,13 @@ public class TokenProvider {
                 algorithm,
                 refreshTokenUUID
         );
+
+
+        return builder
+                .accessToken(accessToken)
+                .accessTokenUUID(accessTokenUUID)
+                .refreshToken(refreshToken)
+                .refreshTokenUUID(refreshTokenUUID)
+                .build();
     }
 }
