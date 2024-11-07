@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_ignore_empty=True)
+    model_config = SettingsConfigDict(env_file="../.env", env_ignore_empty=True)
     DBPATH: str
     SLEEP_TIME: list[int] = [2700, 4200]
     START_DELAY: list[int] = [5, 100]

@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from config import settings
+from .config import settings
 
 # Tạo engine kết nối với cơ sở dữ liệu
 engine = create_engine(f"sqlite+pysqlite:///{settings.DBPATH}", echo=True)
