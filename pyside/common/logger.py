@@ -1,7 +1,7 @@
 import logging
 
 def setup_logger():
-    logger = logging.getLogger("enerum")
+    logger = logging.getLogger("my_logger")
     logger.setLevel(logging.DEBUG)
 
     file_handler = logging.FileHandler("../app.log", encoding="utf-8")
