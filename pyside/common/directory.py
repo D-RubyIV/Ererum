@@ -1,7 +1,7 @@
 import os.path
 import shutil
 
-from pyside.common.logger import setup_logger
+from .logger import setup_logger
 
 logger = setup_logger()
 
@@ -21,3 +21,7 @@ class Directory:
             shutil.rmtree(self.path)
         except Exception as e:
             print(e)
+
+    def get_path_files(self):
+        return [os.path.join(self.path, i) for i in os.listdir(self.path)]
+

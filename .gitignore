@@ -1,5 +1,6 @@
 .idea
 pyside/core/
 pyside/main.py
+storage/session
 **/*.pyc
 __pycache__/
