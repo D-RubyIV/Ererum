@@ -1,1 +1,0 @@
-from pyside.alchemy.config import settings

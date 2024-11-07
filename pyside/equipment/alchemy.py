@@ -1,10 +1,19 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 from .config import settings
+import logging
 
+logging.basicConfig()
+logging.getLogger("sqlalchemy.engine").setLevel(logging.INFO)
 # Tạo engine kết nối với cơ sở dữ liệu
-engine = create_engine(f"sqlite+pysqlite:///{settings.DBPATH}", echo=True)
+engine = create_engine(
+    f"sqlite+pysqlite:///{settings.DBPATH}",
+    pool_size=10,  # Số lượng kết nối tối đa trong pool
+    max_overflow=20,  # Số kết nối vượt quá pool_size có thể được tạo thêm
+    pool_timeout=30,  # Thời gian tối đa chờ đợi khi lấy kết nối từ pool
+    pool_recycle=3600,  # Thời gian làm mới kết nối sau mỗi 3600 giây (1 giờ)
+    echo=True  # Hiển thị các câu lệnh SQL trên console (debugging)
+)
 print(f"DB: ", settings.DBPATH)
 
 # Cấu hình session với các thuộc tính
