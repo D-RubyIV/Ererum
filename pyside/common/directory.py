@@ -25,3 +25,6 @@ class Directory:
     def get_path_files(self):
         return [os.path.join(self.path, i) for i in os.listdir(self.path)]
 
+    def get_path_file(self, file):
+        return os.path.join(self.path, file)
+

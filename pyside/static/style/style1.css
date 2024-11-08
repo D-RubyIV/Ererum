@@ -1,0 +1,158 @@
+/*initial */
+* {
+    border-radius: 4px;
+    margin: 0;
+    padding: 0;
+}
+#centralwidget {
+    background-color: rgb(56,58,60);
+    border: 1px solid rgb(33, 37, 43);
+    border-radius: 10px;
+}
+#framebody {
+    background-color: rgb(40, 44, 52);
+    border: 1px solid rgb(33, 37, 43);
+    border-radius: 10px;
+}
+#groupboxclientinfomation{
+    background-color: rgb(32,32,40);
+    color: rgb(255, 255, 255);
+    text-align: left;
+}
+#groupboxclientinfomation > QPushButton{
+    text-align: left;
+
+}
+#twidget{
+    background-color: rgb(33, 37, 43);
+    border-radius: 10px;
+}
+#leftnavbar > QPushButton{
+text-align: left;
+padding-left: 12px
+}
+#footerprimary {
+text-align: left;
+}
+#footerprimary QLabel{
+color: rgb(229,238,248);
+padding-left: 4px;
+}
+/*CHECK BOX*/
+QCheckBox{
+color: rgb(202,192,204);
+}
+QCheckBox::indicator{
+width: 28px;
+height: 28px;
+padding: 0px;
+border: 0px;
+background-color: rgba(0,0,0,0);
+text-align: left;
+}
+QCheckBox::indicator:checked{
+image: url(":/newPrefix/toggle-button-on-removebg-preview.png");
+}
+QCheckBox::indicator:unchecked{
+image: url(":/newPrefix/toggle-button-off-removebg-preview.png");
+}
+QComboBox:editable {
+    background: #ffffff;
+}
+QComboBox:on {
+    padding-top: 3px;
+}
+QTableWidget {
+    background-color: rgb(255, 255, 0);
+    font-size: 12px
+}
+QTableWidget::indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+}
+QTableWidget::indicator:checked {
+    border: 5px solid #005fb8;
+    width: 6px;
+    height: 6px;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+}
+QPushButton {
+    color: rgb(30, 30, 30);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(170, 170, 255);
+    border-radius: 3px;
+    padding: 4px;
+    qproperty-iconSize: 20px;
+    text-align: bottom;
+}
+QPushButton:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(2, 65, 118, 100);
+    background-position: calc(100% - 50px)center;
+}
+QPushButton:hover {
+    background-color: rgba(2, 65, 118, 200);
+    color: rgb(255, 255, 255);
+}
+QTableWidget {
+    border-radius: 10px;
+    background-color: transparent
+}
+QTableWidget::item {
+    border-radius: 3px;
+    background-color: rgb(92, 95, 141);
+    margin-bottom: 3px;
+    margin-right: 3px;
+}
+QTableWidget::item:selected {
+    color: rgb(255, 255, 255);
+    background-color: rgb(143, 154, 255);
+    border: 0px;
+}
+QScrollBar:vertical {
+    width: 10px;
+    margin: 13px 0 13px 0;
+}
+QScrollBar::handle:vertical {
+    min-height: 30px;
+}
+QScrollBar::add-line:vertical {
+    background: none;
+    height: 13px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    background: none;
+    height: 13px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QScrollBar:horizontal {
+    height: 13px;
+    margin: 0 13px 0 13px;
+}
+
+QScrollBar::handle:horizontal {
+    min-width: 30px;
+}
+QScrollBar::add-line:horizontal {
+    background: none;
+    width: 13px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:horizontal {
+    background: none;
+    width: 13px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}

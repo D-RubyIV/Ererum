@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import String, Integer, DateTime, func, ForeignKey, Boolean
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
@@ -25,17 +27,22 @@ class ProxyRecord(BaseModel):
 
 class TgRecord(BaseModel):
     __tablename__ = "tg"
-
+    __allow_unmapped__ = True
     name: Mapped[str] = mapped_column(String(30), nullable=False)
     phone: Mapped[str] = mapped_column(String(10), nullable=True)
     username: Mapped[str] = mapped_column(String(50), nullable=True)
     first_name: Mapped[str] = mapped_column(String(50), nullable=True)
     last_name: Mapped[str] = mapped_column(String(50), nullable=True)
     authKey: Mapped[str] = mapped_column(String(500), nullable=True)
+    verified: Mapped[bool] = mapped_column(Boolean, nullable=True)
+    was_online: Mapped[datetime] = mapped_column(DateTime, nullable=True)
     is_selected: Mapped[bool] = mapped_column(Boolean, nullable=True)
+
 
     proxy_id: Mapped[int] = mapped_column(ForeignKey("proxy.id"), nullable=True)
     proxy: Mapped["ProxyRecord"] = relationship("ProxyRecord", back_populates="tg_records")
+
+    _row_position: int
 
     @property
     def to_proxy_content(self) -> str:
@@ -47,4 +54,8 @@ class TgRecord(BaseModel):
         return False
 
     def __repr__(self):
-        return f"TgRecord(name={self.name}, _is_selected={self.is_selected})"
+        return f"TgRecord(name={self.name}, is_selected={self.is_selected}, _row_position={self._row_position})"
+
+    @property
+    def row_position(self):
+        return self._row_position

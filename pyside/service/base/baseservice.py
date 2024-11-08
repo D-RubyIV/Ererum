@@ -1,4 +1,4 @@
-from typing import TypeVar, Generic, Type, List
+from typing import TypeVar, Generic, Type, List, Any
 
 from equipment.models import BaseModel
 from repository.base.baserepository import BaseRepository
@@ -29,9 +29,8 @@ class BaseService(Generic[R, T]):
     def delete(self):
         return self.repo.delete(self.entity)
 
-    def update_all(self, entities: List[T]) -> List[T]:
-        return self.repo.update_all(entities)
-
     def commit(self):
         self.repo.get_session().commit()
 
+    def update_field_for_all(self, field_name: str, new_value: Any) -> None:
+        self.repo.update_field_for_all(field_name, new_value)
